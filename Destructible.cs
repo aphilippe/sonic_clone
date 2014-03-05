@@ -5,7 +5,8 @@ public class Destructible : MonoBehaviour {
 
 	#region Fields
 
-	[SerializeField] private float _destructiveForce;
+	[SerializeField] private float _destructiveForce = 175.0f;
+	[SerializeField] private GameObject _splosion;
 
 	#endregion
 
@@ -57,6 +58,7 @@ public class Destructible : MonoBehaviour {
 	private void Destruct()
 	{
 		Destroy(this.gameObject);
+		Instantiate(_splosion, this.transform.position, this.transform.rotation);
 	}
 
 	#endregion
