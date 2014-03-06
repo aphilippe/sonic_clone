@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update()
 	{
-		if(_checkGroundInActive <= 0.0f)
+		if((_checkGroundInActive <= 0.0f && _rigidbody.velocity.y <= 0) || _grounded)
 		{
 			_grounded = Physics2D.OverlapCircle(_groundCheck.position, _groundRadius, _groundMask);
 		}
