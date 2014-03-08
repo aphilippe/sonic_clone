@@ -117,6 +117,17 @@ public class PlayerController : MonoBehaviour {
 	{
 		_direction = this.GetDirection();
 
+		if((_checkGroundInActive <= 0.0f && _rigidbody.velocity.y <= 0) || _grounded)
+		{
+			_grounded = Physics2D.OverlapCircle(_groundCheck.position, _groundRadius, _groundMask);
+		}
+		else
+		{
+			_grounded = false;
+			_checkGroundInActive -= Time.deltaTime;
+		}
+
+
 		if(_grounded) 
 		{
 			if(_jump)

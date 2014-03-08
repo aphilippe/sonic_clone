@@ -42,6 +42,8 @@ public class PlayerState : MonoBehaviour {
 
 	#region Fields
 
+	[SerializeField] private Transform _startPosition;
+
 	private Types _current;
 	private float _invincibleTimeRemaining;
 
@@ -83,7 +85,10 @@ public class PlayerState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		if(_startPosition != null)
+		{
+			this.transform.position = _startPosition.position;
+		}
 	}
 	
 	// Update is called once per frame
